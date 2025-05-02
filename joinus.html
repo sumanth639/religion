@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Stomv - Religious Temple HTML Template</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" />
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Vendor & Plugins CSS (Please remove the comment from below vendor.min.css & plugins.min.css for better website load performance and remove css files from avobe) -->
+
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.min.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .section-space--ptb_120 {
+        padding: 120px 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+      }
+
+      .col-lg-6 {
+        width: 50%;
+        padding: 0 15px;
+      }
+
+      .contact-form-wrap {
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form-wrap .title {
+        margin-bottom: 40px;
+        color: #333;
+        font-weight: 600;
+        font-size: 28px;
+      }
+
+      .contact-form__one .contact-input {
+        margin-bottom: 20px;
+      }
+
+      .contact-form__one label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #444;
+      }
+
+      .contact-form__one .contact-inner {
+        position: relative;
+        width: 100%;
+      }
+
+      .contact-form__one .contact-inner input,
+      .contact-form__one .contact-inner textarea,
+      .contact-form__one .contact-inner select {
+        width: 100%;
+        padding: 10px 20px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .contact-form__one .contact-inner textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .contact-form__one .contact-inner input:focus,
+      .contact-form__one .contact-inner textarea:focus,
+      .contact-form__one .contact-inner select:focus {
+        outline: none;
+        border-color: #f2b263;
+        color: #333;
+      }
+
+      .contact-form__one .submit-btn {
+        background-color: #f2b263;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .contact-form__one .submit-btn:hover {
+        background-color: #e9a144;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(242, 178, 99, 0.3);
+      }
+
+      /* Input placeholder styling */
+      .contact-form__one input::placeholder,
+      .contact-form__one textarea::placeholder {
+        color: #999;
+        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      .contact-form__one input:focus::placeholder,
+      .contact-form__one textarea:focus::placeholder {
+        color: transparent;
+      }
+
+      /* File upload styling */
+      .file-upload-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .file-upload-wrapper input[type='file'] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .file-upload-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 12px 20px;
+        border: 2px dashed #ddd;
+        border-radius: 5px;
+        font-size: 15px;
+        color: #999;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .file-upload-wrapper:hover .file-upload-label {
+        border-color: #f2b263;
+      }
+
+      /* Loader styling */
+      #loader {
+        display: none;
+        margin-left: 10px;
+        animation: spin 1s infinite linear;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Success/Error messages */
+      #successAlert {
+        display: none;
+        padding: 12px;
+        color: white;
+        margin-top: 15px;
+        text-align: center;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      .error-handling-messages {
+        display: none;
+      }
+
+      /* Responsive styles */
+      @media only screen and (max-width: 992px) {
+        .col-lg-6 {
+          width: 100%;
+        }
+
+        .contact-form-wrap {
+          margin-top: 30px;
+        }
+      }
+
+      @media only screen and (max-width: 767px) {
+        .section-space--ptb_120 {
+          padding: 60px 0;
+        }
+
+        .contact-form-wrap {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--====================  header area ====================-->
+    <div class="header-area header-area--default">
+      <!-- Header Bottom Wrap Start -->
+      <header class="header-area header-sticky">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 d-flex align-items-center">
+              <div class="header__logo">
+                <div class="logo">
+                  <a href="index.html"
+                    ><img src="assets/images/logo/logo.png" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="header-right">
+                <div
+                  class="header__navigation menu-style-three d-none d-lg-block"
+                >
+                  <nav class="navigation-menu">
+                    <ul>
+                      <li class="active">
+                        <a href="index.html"><span>Home</span></a>
+                      </li>
+                      <li>
+                        <a href="about-us.html"><span>About</span></a>
+                      </li>
+                      <li>
+                        <a href="service.html"><span>Services</span></a>
+                      </li>
+                      <li>
+                        <a href="gallery.html"><span>Gallery</span></a>
+                      </li>
+                      <li>
+                        <a href="contact-us.html"><span>Contact</span></a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="header-btn text-end d-none d-sm-block ml-lg-4">
+                  <a class="btn-circle btn-default btn" href="contact-us.html"
+                    >Donate</a
+                  >
+                </div>
+
+                <!-- mobile menu -->
+                <div
+                  class="mobile-navigation-icon d-block d-lg-none"
+                  id="mobile-menu-trigger"
+                >
+                  <i></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Header Bottom Wrap End -->
+    </div>
+    <!--====================  End of header area  ====================-->
+
+    <!-- breadcrumb-area start -->
+    <div class="breadcrumb-area--bg-two bg-overlay-black-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 position-relative">
+            <h3 class="breadcrumb-title text-white">Join Us</h3>
+            <!-- breadcrumb-list start -->
+            <ul class="breadcrumb-list">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Join</li>
+            </ul>
+            <!-- breadcrumb-list end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- breadcrumb-area end -->
+
+    <div class="section-space--ptb_120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div id="googleMap-1" class="embed-responsive">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2233913121413!2d77.0701233150797!3d28.50288998247095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d193f5f5a7b6b%3A0x1a5e1f1d3a7e3b6c!2sTwo%20Horizon%20Center%2C%20Golf%20Course%20Rd%2C%20DLF%20Phase%205%2C%20Sector%2043%2C%20Gurugram%2C%20Haryana%20122022!5e0!3m2!1sen!2sin!4v1670477011653!5m2!1sen!2sin"
+                style="
+                  border: 0;
+                  width: 100%;
+                  height: 450px;
+                  border-radius: 8px;
+                "
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-form-wrap">
+              <h3 class="title">Join Our Team</h3>
+              <form
+                id="join-form"
+                method="POST"
+                enctype="multipart/form-data"
+                class="contact-form__one"
+              >
+                <input
+                  type="hidden"
+                  name="website"
+                  id="website"
+                  value="stomv.com"
+                />
+                <div class="contact-input">
+                  <label for="name">Full Name</label>
+                  <div class="contact-inner">
+                    <input
+                      type="text"
+                      name="name"
+                      id="name"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="contact-input">
+                  <label for="contact">Phone</label>
+                  <div class="contact-inner">
+                    <input
+                      type="tel"
+                      name="contact"
+                      id="contact"
+                      placeholder="Your contact number"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="contact-input">
+                  <label for="email">Email</label>
+                  <div class="contact-inner">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="Your email address"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="contact-input">
+                  <label for="role">Join as</label>
+                  <div class="contact-inner">
+                    <select
+                      style="border-radius: 25px; background-color: #fff"
+                      name="role"
+                      id="role"
+                      required
+                    >
+                      <option value="">Select your role</option>
+                      <option value="Intern">Intern</option>
+                      <option value="Associate">Associate</option>
+                      <option value="Trainee">Trainee</option>
+                      <option value="Partner">Partner</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="contact-input">
+                  <label for="resume">Upload Resume</label>
+                  <div class="file-upload-wrapper">
+                    <input
+                      type="file"
+                      name="resume"
+                      id="resume"
+                      accept=".pdf,.doc,.docx"
+                      required
+                    />
+                    <label for="resume" class="file-upload-label">
+                      <span class="file-upload-text">Choose a file</span>
+                      <i>📎</i>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="contact-input">
+                  <label for="message">Message</label>
+                  <div class="contact-inner">
+                    <textarea
+                      name="message"
+                      id="message"
+                      placeholder="Explain what role you can work on and why are you the best fit"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="submit-input">
+                  <button class="submit-btn" type="submit">
+                    Send Message
+                    <span id="loader">⟳</span>
+                  </button>
+                </div>
+
+                <div id="successAlert" style="display: none"></div>
+
+                <div class="error-handling-messages">
+                  <div id="success">Thank you</div>
+                  <div id="error">
+                    Error occurred while sending email. Please try again later.
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--========== Footer Area Start ==========-->
+    <footer class="footer-area bg-footer">
+      <div class="footer-top section-space--ptb_80 section-pb text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="widget-footer mt-30">
+                <div class="footer-title">
+                  <h6>Address</h6>
+                </div>
+                <div class="footer-contents">
+                  <ul>
+                    <li>
+                      <span>Location: </span> Two Horizon, Gurugram, 122002
+                    </li>
+                    <li><span>Phone: </span> +91 8766270884</li>
+                    <li><span>Email: </span> info@stomv.com</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <div class="widget-footer mt-30">
+                <div class="footer-title">
+                  <h6>Quick Links</h6>
+                </div>
+                <div class="footer-contents">
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="widget-footer mt-30">
+                <div class="footer-title">
+                  <h6>Our Services</h6>
+                </div>
+                <div class="footer-contents">
+                  <ul>
+                    <li><a href="#">Classical Yoga</a></li>
+                    <li><a href="#">Guided Meditation</a></li>
+                    <li><a href="#">Wellness Retreats</a></li>
+                    <li><a href="#">Spiritual Workshops</a></li>
+                    <li><a href="#">Seva Programs</a></li>
+                    <li><a href="#">Online Courses</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="widget-footer mt-30">
+                <div class="footer-title">
+                  <h6>Stay Connected</h6>
+                </div>
+                <div class="footer-logo mb-15">
+                  <a href="index.html"
+                    ><img
+                      src="assets/images/logo/footer-logo.png"
+                      alt="Stomv Logo"
+                  /></a>
+                </div>
+                <div class="footer-contents">
+                  <p>
+                    Subscribe to our Newsletter for spiritual insights and
+                    updates.
+                  </p>
+                  <div class="newsletter-box">
+                    <input
+                      type="hidden"
+                      name="token"
+                      value="af0b7193-e1ba-42f6-a435-db4fb28a9f4a"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Enter your email address"
+                      required
+                    />
+                    <button type="submit">
+                      <i class="flaticon-paper-plane"></i>
+                    </button>
+                  </div>
+
+                  <ul class="footer-social-share mt-20">
+                    <li>
+                      <a href="#"><i class="flaticon-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="flaticon-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="flaticon-instagram"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="flaticon-youtube"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div
+                class="copy-right-box"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 18px;
+                "
+              >
+                <p class="text-white">
+                  Copyright &copy; 2025 Stomv
+                  <a href="aetherweb.life" target="_blank"
+                    >Designed By Aetherweb Technologies LLP </a
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--==========// Footer Area End ==========-->
+
+    <!--====================  scroll top ====================-->
+    <a href="#" class="scroll-top" id="scroll-top">
+      <i class="arrow-top flaticon-up-arrow"></i>
+      <i class="arrow-bottom flaticon-up-arrow"></i>
+    </a>
+    <!--====================  End of scroll top  ====================-->
+
+    <!--====================  mobile menu overlay ====================-->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+      <div class="mobile-menu-overlay__inner">
+        <div class="mobile-menu-overlay__header">
+          <div class="container-fluid">
+            <div class="row align-items-center">
+              <div class="col-md-6 col-8">
+                <!-- logo -->
+                <div class="logo">
+                  <a href="index.html">
+                    <img
+                      src="assets/images/logo/logo.png"
+                      class="img-fluid"
+                      alt=""
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-4">
+                <!-- mobile menu content -->
+                <div class="mobile-menu-content text-end">
+                  <span
+                    class="mobile-navigation-close-icon"
+                    id="mobile-menu-close-trigger"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-menu-overlay__body">
+          <nav class="offcanvas-navigation">
+            <ul>
+              <li class="active">
+                <a href="index.html"><span>Home</span></a>
+              </li>
+              <li>
+                <a href="about-us.html"><span>About</span></a>
+              </li>
+              <li>
+                <a href="service.html"><span>Services</span></a>
+              </li>
+              <li>
+                <a href="gallery.html"><span>Gallery</span></a>
+              </li>
+              <li>
+                <a href="contact-us.html"><span>Contact</span></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <!--====================  End of mobile menu overlay  ====================-->
+
+    <!-- JS
+    ============================================ -->
+    <!-- Form submit -->
+    <script>
+      document
+        .getElementById('join-form')
+        .addEventListener('submit', async function (event) {
+          event.preventDefault();
+          const formElem = this;
+          const formData = new FormData(formElem);
+          // Debug form data
+          console.log(formData.get('role'));
+          const successAlert = document.getElementById('successAlert');
+          const buttonElem = formElem.querySelector('.submit-btn');
+          const loader = document.getElementById('loader');
+          try {
+            // Show loading state
+            buttonElem.disabled = true; // Disable button to prevent multiple submissions
+            buttonElem.textContent = 'Sending Message...';
+            loader.style.display = 'inline-block';
+            const response = await fetch(
+              'https://backend-for-ptwo.onrender.com/joinus',
+              {
+                method: 'POST',
+                body: formData,
+              }
+            );
+            const result = await response.json();
+            if (response.ok) {
+              // Hide standard success/error messages
+              document.getElementById('success').style.display = 'none';
+              document.getElementById('error').style.display = 'none';
+              // Show custom success message
+              successAlert.innerText = 'Your response has been noted!';
+              successAlert.style.backgroundColor = '#4CAF50';
+              successAlert.style.display = 'block';
+              // Reset form
+              formElem.reset();
+              // Reset file input display
+              document.querySelector('.file-upload-text').textContent =
+                'Choose a file';
+              // Reset button text
+              buttonElem.textContent = 'Send Message';
+              buttonElem.disabled = false; // Re-enable button
+              loader.style.display = 'none';
+              // Hide success message after delay
+              setTimeout(() => {
+                successAlert.style.display = 'none';
+              }, 3000);
+            } else {
+              throw new Error(result.error || 'Submission failed');
+            }
+          } catch (error) {
+            // Hide standard success/error messages
+            document.getElementById('success').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            // Show custom error message
+            successAlert.innerText =
+              error.message || 'An error occurred. Please try again later.';
+            successAlert.style.backgroundColor = '#f44336';
+            successAlert.style.display = 'block';
+            // Reset button text
+            buttonElem.textContent = 'Send Message';
+            buttonElem.disabled = false; // Re-enable button
+            loader.style.display = 'none';
+            // Hide error message after delay
+            setTimeout(() => {
+              successAlert.style.display = 'none';
+            }, 5000);
+          }
+        });
+
+      // Show filename when file is selected
+      document.getElementById('resume').addEventListener('change', function () {
+        const fileNameSpan = document.querySelector('.file-upload-text');
+        if (this.files.length > 0) {
+          fileNameSpan.textContent = this.files[0].name;
+        } else {
+          fileNameSpan.textContent = 'Choose a file';
+        }
+      });
+    </script>
+
+    <!-- Modernizer JS -->
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <!-- jquery JS -->
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+    <!-- Plugins JS (Please remove the comment from below plugins.min.js for better website load performance and remove plugin js files from avobe) -->
+
+    <script src="assets/js/plugins/plugins.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
