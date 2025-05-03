@@ -4387,3 +4387,6 @@ input[type='checkbox'] {
 testarea {
   width: 100%;
 }
+img {
+  border-radius: 9px !important;
+}
