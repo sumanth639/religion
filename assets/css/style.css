@@ -727,7 +727,7 @@ input[type='checkbox'] {
   padding-top: 136px;
   padding-bottom: 131px;
   background-size: cover;
-  background-image: url(../images/bg/breadcrumb-01.png);
+  background-image: url(../images/breadcrumb.jpg);
 }
 @media only screen and (max-width: 767px),
   only screen and (min-width: 768px) and (max-width: 991px),
@@ -738,7 +738,7 @@ input[type='checkbox'] {
   }
 }
 .breadcrumb-area--bg-two {
-  background-image: url(../images/bg/breadcrumb-03.png);
+  background-image: url(../images/breadcrumb.jpg);
 }
 
 .bg-overlay-black-4 {
@@ -2906,7 +2906,7 @@ input[type='checkbox'] {
 =            06. Hero Area Css           =
 =========================================*/
 .hindu-hero-bg {
-  background: url(../images/hero/hindu-hero-bg-01.png);
+  background: url(../images/home.jpg);
 }
 
 .hero-style-01 {
@@ -2943,19 +2943,19 @@ input[type='checkbox'] {
 }
 
 .muslim-hero-bg {
-  background: url(../images/hero/muslim-hero-bg-01.png);
+  background: url(../images/home.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .christian-hero-bg {
-  background: url(../images/hero/christian-hero-bg-01.png);
+  background: url(../images/home.jpg);
   background-size: cover;
   background-position: center;
 }
 
 .christian-hero-bg-two {
-  background: url(../images/hero/christian-hero-bg-02.png);
+  background: url(../images/home.jpg);
   background-size: cover;
   background-position: center;
 }
